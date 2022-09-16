@@ -39,7 +39,8 @@ public class Calismalarim3 {
         WebElement signUpLogin= driver.findElement(By.xpath("//*[text()=' Signup / Login']"));
         signUpLogin.click();
         // Verify 'Login to your account' is visible
-
+       WebElement loginButtonWE=driver.findElement(By.xpath("//a[@href='/login']"));
+       Assert.assertTrue(loginButtonWE.isDisplayed());
         // Enter incorrect email address and password
         // Click 'login' button
         // Verify error 'Your email or password is incorrect!' is visible
