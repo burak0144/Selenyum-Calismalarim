@@ -42,7 +42,19 @@ public class Calismalarim3 {
        WebElement loginButtonWE=driver.findElement(By.xpath("//a[@href='/login']"));
        Assert.assertTrue(loginButtonWE.isDisplayed());
         // Enter incorrect email address and password
+        WebElement emailWE=driver.findElement(By.xpath("(//input[@type='email'])[1]"));
+        WebElement passwordWE=driver.findElement(By.xpath("(//input[@type='password'])[1]"));
+        emailWE.sendKeys("berk@gmail.com");
+        passwordWE.sendKeys("1234");
         // Click 'login' button
+        WebElement sigInWE=driver.findElement(By.xpath("(//button[@type='submit'])[1]"));
+        sigInWE.click();
+
         // Verify error 'Your email or password is incorrect!' is visible
+        WebElement errorWE=driver.findElement(By.xpath("(//p[text()='Your email or password is incorrect!'])"));
+        String actualWord=errorWE.getText();
+        String expectedWord="Your email or password is incorrect!";
+
+        Assert.assertEquals(actualWord,expectedWord);
     }
 }
