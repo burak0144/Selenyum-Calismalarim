@@ -45,7 +45,7 @@ public class Calismalarim3 {
         WebElement passwordWE=driver.findElement(By.xpath("(//input[@type='password'])[1]"));
         emailWE.sendKeys("berk@gmail.com");
         passwordWE.sendKeys("1234");
-        // Click 'login' button
+        // Click 'login' button.
         WebElement sigInWE=driver.findElement(By.xpath("(//button[@type='submit'])[1]"));
         sigInWE.click();
 
