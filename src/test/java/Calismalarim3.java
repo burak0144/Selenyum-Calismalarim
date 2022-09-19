@@ -37,10 +37,10 @@ public class Calismalarim3 {
         // Click on 'Signup / Login' button
         WebElement signUpLogin= driver.findElement(By.xpath("//*[text()=' Signup / Login']"));
         signUpLogin.click();
-        // Verify 'Login to your account' is visible
+        // Verify 'Login to your account' is visible.
        WebElement loginButtonWE=driver.findElement(By.xpath("//a[@href='/login']"));
        Assert.assertTrue(loginButtonWE.isDisplayed());
-        // Enter incorrect email address and password
+        // Enter incorrect email address and password.
         WebElement emailWE=driver.findElement(By.xpath("(//input[@type='email'])[1]"));
         WebElement passwordWE=driver.findElement(By.xpath("(//input[@type='password'])[1]"));
         emailWE.sendKeys("berk@gmail.com");

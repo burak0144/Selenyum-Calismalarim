@@ -24,7 +24,7 @@ public class Calismalarim2 {
     }
     @Test
     public void test(){
-        // Navigate to url 'http://automationexercise.com'
+        // Navigate to url 'http://automationexercise.com'.
         driver.navigate().to("http://automationexercise.com");
         //Verify that home page is visible successfully
         WebElement homeButtonWE =driver.findElement(By.xpath("//a[@style='color: orange;']"));
