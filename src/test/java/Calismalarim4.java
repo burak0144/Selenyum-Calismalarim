@@ -9,4 +9,4 @@ public class Calismalarim4 {
 // Verify that 'Logged in as username' is visible
 // Click 'Logout' button
 //. Verify that user is navigated to login page
-}
+ }
