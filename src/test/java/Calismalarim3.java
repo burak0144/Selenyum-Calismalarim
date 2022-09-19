@@ -28,7 +28,6 @@ public class Calismalarim3 {
         // Navigate to url 'http://automationexercise.com'
         driver.navigate().to("http://automationexercise.com");
 
-
         // Verify that home page is visible successfully
         WebElement homePageWE=driver.findElement(By.xpath("//a[@style='color: orange;']"));
         String actualPage=homePageWE.getText();
@@ -50,7 +49,7 @@ public class Calismalarim3 {
         WebElement sigInWE=driver.findElement(By.xpath("(//button[@type='submit'])[1]"));
         sigInWE.click();
 
-        // Verify error 'Your email or password is incorrect!' is visible
+        // Verify error 'Your email or password is incorrect!' is visible.
         WebElement errorWE=driver.findElement(By.xpath("(//p[text()='Your email or password is incorrect!'])"));
         String actualWord=errorWE.getText();
         String expectedWord="Your email or password is incorrect!";
