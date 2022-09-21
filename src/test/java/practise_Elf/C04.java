@@ -1,5 +1,12 @@
 package practise_Elf;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.time.Duration;
+
 public class C04 {
      /* note:
     JavaScriptExecutor  nedir?
@@ -38,5 +45,27 @@ public class C04 {
     // Alisverisi tamamlayiniz
     // son olarak da "Teknosa'ya hos geldiniz" webelementinin text 'ini yazdiriniz
     // driver'i kapatiniz
+     public static void main(String[] args) {
+         WebDriverManager.chromedriver().setup();
+         WebDriver driver=new ChromeDriver();
+         driver.manage().window().maximize();
+         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+         driver.get("https://www.teknosa.com/");
+         driver.manage().deleteAllCookies();
+
+         ChromeOptions op=new ChromeOptions();
+         op.addArguments("--disable-notifications"); /* disable notification parameter */
+         // Search box sendKeys "oppo" and keys Enter
+         driver.findElement(By.id("search-input")).sendKeys("oppo"+ Keys.ENTER);
+
+         System.out.println("sonuc yazisi :" + driver.findElement(By.xpath("//div[@class='plp-info']")));
+
+         // sonuc sayisini yazdiriniz
+         WebElement sonucSayisiElementi= driver.findElement(By.xpath("//div[@class='plp-info']"));
+         System.out.println(("Sonuc sayisi==> ")+sonucSayisiElementi.getText());
+
+         JavascriptExecutor js=(JavascriptExecutor) driver;
+         js.executeScript("scrollBy(0,200");
+     }
 
 }
