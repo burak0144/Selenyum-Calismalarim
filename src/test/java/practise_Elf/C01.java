@@ -1,4 +1,4 @@
-package practise;
+package practise_Elf;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.*;
