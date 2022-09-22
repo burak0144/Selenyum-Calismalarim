@@ -53,12 +53,12 @@ public class C04 {
          driver.get("https://www.teknosa.com/");
          driver.manage().deleteAllCookies();
 
-         ChromeOptions op=new ChromeOptions();
-         op.addArguments("--disable-notifications"); /* disable notification parameter */
+      //  ChromeOptions op=new ChromeOptions();
+      //  op.addArguments("--disable-notifications"); /* disable notification parameter */
          // Search box sendKeys "oppo" and keys Enter
          driver.findElement(By.id("search-input")).sendKeys("oppo"+ Keys.ENTER);
 
-         System.out.println("sonuc yazisi :" + driver.findElement(By.xpath("//div[@class='plp-info']")));
+        // System.out.println("sonuc yazisi :" + driver.findElement(By.xpath("//div[@class='plp-info']")));
 
          // sonuc sayisini yazdiriniz
          WebElement sonucSayisiElementi= driver.findElement(By.xpath("//div[@class='plp-info']"));
