@@ -22,8 +22,8 @@ public class C04 {
     Selenium javaScriptExecutor'i destekler.Ekstra bir eklenti veya eklentiye gerek yoktur.
     JavaScriptExecutor kullanmak icin komut dosyasinda(org.openqa.selenium.JavascriptExecutor) ice aktarmaniz yeterlidir.
 
-          executeScript araciligiyla sayfayi 1000 oiksel kaydirin.
-          Javascript tontemi ScrollBy(), web sayfasini belirli piksel sayisina kaydirir.
+          executeScript araciligiyla sayfayi 1000 piksel kaydirin.
+          Javascript yontemi ScrollBy(), web sayfasini belirli piksel sayisina kaydirir.
 
           ScrollBy()  yontemlerinin sozdizimi soyledir:
           executeScript("window.scrollBy(x-piksel,y-piksel)"); ya da js.executeScript("scroll(x,y);");
@@ -53,8 +53,8 @@ public class C04 {
          driver.get("https://www.teknosa.com/");
          driver.manage().deleteAllCookies();
 
-      //  ChromeOptions op=new ChromeOptions();
-      //  op.addArguments("--disable-notifications"); /* disable notification parameter */
+      // ChromeOptions op=new ChromeOptions();
+       //op.addArguments("--disable-notifications"); /* disable notification parameter */
          // Search box sendKeys "oppo" and keys Enter
          driver.findElement(By.id("search-input")).sendKeys("oppo"+ Keys.ENTER);
 
@@ -64,8 +64,27 @@ public class C04 {
          WebElement sonucSayisiElementi= driver.findElement(By.xpath("//div[@class='plp-info']"));
          System.out.println(("Sonuc sayisi==> ")+sonucSayisiElementi.getText());
 
-         JavascriptExecutor js=(JavascriptExecutor) driver;
-         js.executeScript("scrollBy(0,200");
+
+         // cikan ilk urune tiklayiniz
+         driver.findElement(By.xpath("(//a[@class='prd-link'])[1]")).click();
+         // sepete ekleyiniz
+         /***********************************************************************************/
+         JavascriptExecutor js= (JavascriptExecutor) driver;
+         js.executeScript("scrollBy(0,200)");//===> **** Sayfayi asagi yönde 200px indirir *****
+         /***********************************************************************************/
+         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+         driver.findElement(By.xpath("(//button[@id='addToCartButton'])[1]")).click();
+         // sepetime git 'e tiklayiniz
+         driver.findElement(By.xpath("//a[@class='btn btn-secondary']")).click();
+         // consaol'da "Siparis Özeti" webelementinin text'ini yazdiriniz
+         WebElement siparisOzeti=driver.findElement(By.xpath("//div[@class='cart-sum-body']"));
+         System.out.println(siparisOzeti.getText());
+         // Alisverisi tamamlayiniz
+         driver.findElement(By.xpath("//span[text()='Alışverişi Tamamla']")).click();
+         // son olarak da "Teknosa'ya hos geldiniz" webelementinin text 'ini yazdiriniz
+         System.out.println(driver.findElement(By.xpath("//div[text()='Teknosa’ya hoş geldiniz']")).getText());
+         // driver'i kapatiniz
+         driver.close();
      }
 
 }
