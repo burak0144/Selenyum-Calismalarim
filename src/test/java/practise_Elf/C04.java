@@ -45,9 +45,14 @@ public class C04 {
     // Alisverisi tamamlayiniz
     // son olarak da "Teknosa'ya hos geldiniz" webelementinin text 'ini yazdiriniz
     // driver'i kapatiniz
+     static WebDriver driver;
      public static void main(String[] args) {
          WebDriverManager.chromedriver().setup();
-         WebDriver driver=new ChromeDriver();
+
+         ChromeOptions co=new ChromeOptions();
+         co.addArguments("--remote-allow-origins=*");
+
+         driver = new ChromeDriver(co);
          driver.manage().window().maximize();
          driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
          driver.get("https://www.teknosa.com/");
